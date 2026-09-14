@@ -110,7 +110,6 @@ function TypeDefensesScreen.buildOutPagedButtons(pokemonID)
 	-- Your lead Pokémon
 	local ownLeadPokemon = Battle.getViewedPokemon(true) or {}
 
-
 	local pokemonDefenses
 
 	local randomTypesShowable = (PokemonData.canShowUnknownTypes() or Options["Reveal info if randomized"] or pokemonID == ownLeadPokemon.pokemonID)
