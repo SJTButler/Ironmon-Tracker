@@ -112,7 +112,10 @@ function TypeDefensesScreen.buildOutPagedButtons(pokemonID)
 
 
 	local pokemonDefenses
-	if (PokemonData.canShowUnknownTypes() or Options["Reveal info if randomized"] or pokemonID == ownLeadPokemon.pokemonID) then
+
+	local randomTypesShowable = (PokemonData.canShowUnknownTypes() or Options["Reveal info if randomized"] or pokemonID == ownLeadPokemon.pokemonID)
+	local logOpen = (Program.currentOverlay == LogOverlay and RandomizerLog.Data.Pokemon[pokemonID])
+	if randomTypesShowable or logOpen then
 		pokemonDefenses = PokemonData.getEffectiveness(pokemonID)
 	else
 		pokemonDefenses = {
